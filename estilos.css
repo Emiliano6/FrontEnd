@@ -1,0 +1,192 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos generales */
+header, main, footer {
+  padding: 1rem;
+}
+
+/* Estilos para la galería de imágenes */
+.gallery-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gallery-section .row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-container {
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Primera fila - 1 imagen */
+.image-container.single {
+  width: 100%;
+}
+
+/* Segunda fila - 2 imágenes */
+.image-container.double {
+  width: calc(50% - 7.5px);
+}
+
+.image-container.double:first-child {
+  margin-right: 15px;
+}
+
+/* Tercera y cuarta fila - 3 imágenes */
+.image-container.triple {
+  width: calc(33.333% - 10px);
+  margin-right: 15px;
+}
+
+.image-container.triple:last-child {
+  margin-right: 0;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Menú móvil */
+  .menu-button {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  /* El menú se posiciona abajo y a lo ancho */
+  .menu {
+    display: none; /* Por defecto oculto */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: white;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .menu.active {
+    display: flex;
+  }
+  .menu a {
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Galería: cada row se apila verticalmente */
+  .gallery-section .row {
+    flex-direction: column;
+  }
+  
+  /* Forzamos que cada contenedor ocupe el 100% */
+  .image-container.single,
+  .image-container.double,
+  .image-container.triple {
+    width: 100%;
+  }
+}
+
+/* Estilos para la navegación */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  gap: 1rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu-button {
+  display: none;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+  }
+
+  /* Estilos para la galería en móvil */
+  .row {
+    display: block;
+  }
+
+  .image-container.single,
+  .image-container.double,
+  .image-container.triple {
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Estilos para desktop */
+@media (min-width: 769px) {
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+  }
+}
